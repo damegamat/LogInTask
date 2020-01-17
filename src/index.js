@@ -10,8 +10,8 @@ import {
 import { Provider } from "react-redux";
 import store from "./store";
 
-import App from "./components/App";
-import Login from "./components/Login/Login";
+import App from "./components/app/App";
+import Login from "./components/login/Login";
 
 import "./index.css";
 

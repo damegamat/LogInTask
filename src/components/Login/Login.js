@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Redirect, Route } from "react-router-dom";
+import React, { useState, useEffect } from "./node_modules/react";
+import { Redirect, Route } from "./node_modules/react-router-dom";
 import "./Login.css";
 function Login() {
   const [username, setUsername] = useState("");
