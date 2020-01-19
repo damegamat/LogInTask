@@ -1,0 +1,35 @@
+.userDetails {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  padding-top: 20px;
+  background-color: rgba(130, 204, 221, 0.5);
+  font-size: 1.6rem;
+  &__header {
+    align-self: center;
+    text-transform: uppercase;
+  }
+  &__userId,
+  &__id,
+  &__title,
+  &__body {
+    display: flex;
+    font-size: 1.8rem;
+    padding: 30px;
+  }
+  span {
+    width: 10%;
+    font-weight: bold;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+  & .btn {
+    position: absolute;
+    top: 3%;
+    left: 2%;
+    text-transform: uppercase;
+  }
+}
