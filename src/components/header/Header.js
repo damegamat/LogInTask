@@ -1,7 +1,15 @@
-import React from "./node_modules/react";
+import React from "react";
+import Btn from "../btn/Btn";
+import SearchBar from "../searchBar/SearchBar";
+import "./Header.css";
 
 const Header = () => {
-  return console.log("ok");
+  return (
+    <div className="header">
+      <Btn />
+      <SearchBar />
+    </div>
+  );
 };
 
 export default Header;
