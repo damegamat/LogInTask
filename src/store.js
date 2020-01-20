@@ -1,13 +1,33 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import reducer from "./reducer";
+import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import rootReducer from "./reducer/index";
+import rootReducer from "./reducers/index";
+import "./actions/userActions";
+import {
+  fetchUsersAction,
+  fetchUserDetailsAction
+} from "./actions/userActions";
+import axios from "axios";
 
-// const rootReducer = () => {
-//   console.log("ok");
-// };
-const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
-store.dispatch({ type: "TO", text: "asda" });
+export function fetchUsers() {
+  return dispatch => {
+    return axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then(response => {
+        dispatch(fetchUsersAction(response.data));
+      });
+  };
+}
+
+export function fetchUsersDetails(id) {
+  return dispatch => {
+    return axios
+      .get(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then(response => {
+        dispatch(fetchUserDetailsAction(response.data));
+      });
+  };
+}
 
 export default store;
