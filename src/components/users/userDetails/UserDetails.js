@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Btn from "../btn/Btn";
+import Btn from "../../../common/btn/Btn";
 import "./UserDetails.css";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import * as usersDet from "../../store";
+import * as usersDet from "../../../store";
 
 const UserDetails = ({ details, match, fetchUsersDetails }) => {
   const id = match.params.id;
