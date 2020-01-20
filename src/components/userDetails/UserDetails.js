@@ -1,32 +1,59 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Btn from "../btn/Btn";
 import "./UserDetails.css";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import * as usersDet from "../../store";
 
-const UserDetails = props => {
-  console.log(props);
-  const id = props.match.params.id;
-  return (
-    <div className="userDetails">
-      <h1 className="userDetails__header">details</h1>
-      <div className="userDetails__userId">
-        <span>user-id:</span>
-        <p>{id}</p>
+const UserDetails = ({ details, match, fetchUsersDetails }) => {
+  const id = match.params.id;
+
+  useEffect(() => {
+    fetchUsersDetails(id);
+  }, []);
+
+  if (details) {
+    return (
+      <div className="userDetails">
+        <h1 className="userDetails__header">details</h1>
+        <div className="userDetails__userId">
+          <span>user_id:</span>
+          <p>{details.id}</p>
+        </div>
+        <div className="userDetails__name">
+          <span>name:</span>
+          <p>{details.name}</p>
+        </div>
+        <div className="userDetails__username">
+          <span>username:</span>
+          <p>{details.username}</p>
+        </div>
+        <div className="userDetails__email">
+          <span>email:</span>
+          <p>{details.email}</p>
+        </div>
+        <div className="userDetails__phone">
+          <span>phone:</span>
+          <p>{details.phone}</p>
+        </div>
+        <div className="userDetails__website">
+          <span>website:</span>
+          <p>{details.website}</p>
+        </div>
+        <NavLink to="/">
+          <Btn className="userDetails__btn" text={`home`} />
+        </NavLink>
       </div>
-      <div className="userDetails__id">
-        <span>id:</span>
-        <p>31</p>
-      </div>
-      <div className="userDetails__title">
-        <span>title:</span>
-        <p>lorem ipsum</p>
-      </div>
-      <div className="userDetails__body">
-        <span>body:</span>
-        <p>lorem ipsum mega nowa non qubis conquesta sed unt int quidem</p>
-      </div>
-      <Btn className="userDetails__btn" text={`home`} />
-    </div>
-  );
+    );
+  } else {
+    return null;
+  }
 };
 
-export default UserDetails;
+const mapStateToProps = state => {
+  return {
+    details: state.users.details
+  };
+};
+
+export default connect(mapStateToProps, usersDet)(UserDetails);
