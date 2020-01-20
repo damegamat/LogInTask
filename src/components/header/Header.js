@@ -1,5 +1,5 @@
 import React from "react";
-import Btn from "../btn/Btn";
+import Btn from "../../common/btn/Btn";
 import SearchBar from "../searchBar/SearchBar";
 import "./Header.css";
 import { NavLink } from "react-router-dom";

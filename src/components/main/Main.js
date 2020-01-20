@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import UserList from "../userList/UserList";
+import UserList from "../users/userList/UserList";
 import { connect } from "react-redux";
 import * as usersActions from "../../store";
 import getFilteredUsers from "../../selectors/getFilteredUsers";
