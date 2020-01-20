@@ -12,7 +12,7 @@ import store from "./store";
 
 import App from "./components/app/App";
 import SignIn from "./components/signin/SignIn";
-import UserDetails from "./components/userDetails/UserDetails";
+import UserDetails from "./components/users/userDetails/UserDetails";
 
 import "./index.css";
 
