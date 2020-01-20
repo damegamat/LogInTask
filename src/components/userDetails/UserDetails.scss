@@ -11,15 +11,17 @@
     text-transform: uppercase;
   }
   &__userId,
-  &__id,
-  &__title,
-  &__body {
+  &__name,
+  &__username,
+  &__phone,
+  &__website,
+  &__email {
     display: flex;
     font-size: 1.8rem;
     padding: 30px;
   }
   span {
-    width: 10%;
+    width: 15%;
     font-weight: bold;
 
     &::first-letter {
