@@ -1,12 +1,25 @@
 import React from "react";
 import "./SearchBar.css";
+import { connect } from "react-redux";
+import { searchValueAction } from "../../actions/searchAction";
 
-const SearchBar = () => {
+const SearchBar = props => {
+  const handleSearchChange = e => {
+    props.searchValueAction(e.currentTarget.value);
+  };
+
   return (
     <div className="searchBar">
-      <input />
+      <input
+        type="text"
+        placeholder="Search..."
+        value={props.contactsSearch}
+        onChange={e => handleSearchChange(e)}
+      />
     </div>
   );
 };
 
-export default SearchBar;
+const mapDispatchToProps = { searchValueAction };
+
+export default connect(null, mapDispatchToProps)(SearchBar);
