@@ -1,19 +1,21 @@
 import React from "react";
 import "./UserSummary.css";
+import { NavLink } from "react-router-dom";
 
-const UserSummary = () => {
+const UserSummary = ({ user }) => {
   return (
     <div className="userSummary">
       <div className="userSummary__id">
         <span>user_id:</span>
-        <p>10</p>
+        <p>{user.id}</p>
       </div>
-      <div className="userSummary__title">
-        <span>title:</span>
-        <p>new project memory</p>
+      <div className="userSummary__name">
+        <span>name:</span>
+        <p>{user.name}</p>
       </div>
-
-      <button className="userSummary__btn">details</button>
+      <NavLink to={`/user/` + user.id}>
+        <button className="userSummary__btn">details</button>
+      </NavLink>
     </div>
   );
 };
