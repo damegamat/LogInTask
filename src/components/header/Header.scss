@@ -2,4 +2,14 @@
   display: flex;
   justify-content: space-evenly;
   padding: 15px;
+  a {
+    width: 30%;
+    // padding-top: 10px;
+    text-decoration: none;
+    .btn {
+      width: 100%;
+      height: 100%;
+      text-transform: uppercase;
+    }
+  }
 }
