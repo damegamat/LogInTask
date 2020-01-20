@@ -6,17 +6,23 @@
   margin: 15px 10px;
   box-shadow: 0px 0px 4px 3px rgba(78, 101, 124, 0.8);
   &__id,
-  &__title {
+  &__name {
     display: flex;
     padding: 20px 10px;
     font-size: 1.2rem;
+    flex: 1;
   }
   span {
     text-transform: uppercase;
     font-weight: bold;
-    flex-basis: 20%;
+    flex-basis: 30%;
+  }
+  a {
+    display: block;
+    width: 100%;
   }
   &__btn {
+    width: 100%;
     border: none;
     border-top: 2px solid #008b8b;
     background-color: rgba(112, 8, 8, 0.2);
