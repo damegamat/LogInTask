@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import "./SignIn.css";
-function SignIn() {
+import { connect, useDispatch } from "react-redux";
+import { authAction } from "../../actions/authAction";
+import userReducer from "../../reducers/userReducer";
+
+function SignIn(props) {
+  const dispatch = useDispatch();
   const [form, setForm] = useState({ username: "", password: "" });
+  const [auth, setAuth] = useState(false);
+  const auths = sessionStorage.getItem("auth");
 
   const handleChange = e => {
     setForm({
@@ -13,7 +20,16 @@ function SignIn() {
 
   const handleSubmitForm = e => {
     e.preventDefault();
-    console.log(form);
+
+    if (form.username.length > 4 && form.password.length > 4) {
+      props.history.push("/");
+      setAuth(true);
+      dispatch(authAction(true));
+      sessionStorage.setItem("auth", true);
+      console.log("ok");
+    } else {
+      sessionStorage.setItem("auth", false);
+    }
   };
 
   return (
@@ -44,4 +60,10 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+const mapStateToProps = state => {
+  return {
+    auths: state.auth
+  };
+};
+
+export default connect(mapStateToProps)(SignIn);
