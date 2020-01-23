@@ -22,9 +22,12 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
+        <Route exact path="/signin" component={SignIn} />
+        {JSON.parse(!sessionStorage.getItem("auth")) && (
+          <Redirect to="/signin" />
+        )}
         <Route exact path="/" component={App} />
         <Route exact path="/user/:id" component={UserDetails} />
-        <Route exact path="/signin" component={SignIn} />
       </Switch>
     </Router>
   </Provider>,
