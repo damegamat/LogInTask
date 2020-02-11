@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import UserList from "../users/userList/UserList";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import * as usersActions from "../../store";
 import getFilteredUsers from "../../selectors/getFilteredUsers";
 
-const Main = ({ users, fetchUsers, searchValue }) => {
+const Main = ({ fetchUsers }) => {
+  const searchValue = useSelector(state => state.searchValue.searchValue);
+  const users = useSelector(state => state.users.users);
   let currentUsers;
 
   useEffect(() => {
@@ -20,11 +22,4 @@ const Main = ({ users, fetchUsers, searchValue }) => {
   return <UserList users={currentUsers} />;
 };
 
-const mapStateToProps = state => {
-  return {
-    users: state.users.users,
-    searchValue: state.searchValue.searchValue
-  };
-};
-
-export default connect(mapStateToProps, usersActions)(Main);
+export default connect(null, usersActions)(Main);
