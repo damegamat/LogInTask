@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import "./SignIn.css";
-import { connect, useDispatch } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { authAction } from "../../actions/authAction";
 import userReducer from "../../reducers/userReducer";
 
 function SignIn(props) {
+  const authorisation = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const [form, setForm] = useState({ username: "", password: "" });
   const [auth, setAuth] = useState(false);
@@ -60,10 +61,4 @@ function SignIn(props) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    auths: state.auth
-  };
-};
-
-export default connect(mapStateToProps)(SignIn);
+export default connect(null)(SignIn);

@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import Btn from "../../../common/btn/Btn";
 import "./UserDetails.css";
 import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import * as usersDet from "../../../store";
 
-const UserDetails = ({ details, match, fetchUsersDetails }) => {
+const UserDetails = ({ match, fetchUsersDetails }) => {
+  const details = useSelector(state => state.users.details);
   const id = match.params.id;
 
   useEffect(() => {
@@ -50,10 +51,4 @@ const UserDetails = ({ details, match, fetchUsersDetails }) => {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    details: state.users.details
-  };
-};
-
-export default connect(mapStateToProps, usersDet)(UserDetails);
+export default connect(null, usersDet)(UserDetails);
