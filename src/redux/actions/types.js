@@ -2,3 +2,6 @@ export const FETCH_USER = "FETCH_USER";
 export const FETCH_USER_DETAILS = "FETCH_USER_DETAILS";
 export const SEARCH_VALUE = "SEARCH_VALUE";
 export const AUTH = "AUTH";
+export const SET_LOGIN_PENDING = "SET_LOGIN_PENDING";
+export const SET_LOGIN_SUCCESS = "SET_LOGIN_SUCCESS";
+export const SET_LOGIN_ERROR = "SET_LOGIN_ERROR";
