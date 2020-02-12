@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import rootReducer from "./reducers/index";
-import "./actions/userActions";
+import rootReducer from "./redux/reducers/index";
+import "./redux/actions/userActions";
 import {
   fetchUsersAction,
   fetchUserDetailsAction
-} from "./actions/userActions";
+} from "./redux/actions/userActions";
 import axios from "axios";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

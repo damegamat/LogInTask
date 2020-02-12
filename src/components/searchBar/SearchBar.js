@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 import { connect } from "react-redux";
-import { searchValueAction } from "../../actions/searchAction";
+import { searchValueAction } from "../../redux/actions/searchAction";
 
 const SearchBar = props => {
   const handleSearchChange = e => {

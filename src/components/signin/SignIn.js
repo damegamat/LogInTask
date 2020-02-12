@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import "./SignIn.css";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { authAction } from "../../actions/authAction";
-import userReducer from "../../reducers/userReducer";
+import { authAction } from "../../redux/actions/authAction";
+import userReducer from "../../redux/reducers/userReducer";
 
 function SignIn(props) {
   const authorisation = useSelector(state => state.auth);
