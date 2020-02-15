@@ -13,6 +13,7 @@ import store from "./store";
 import App from "./components/app/App";
 import SignIn from "./components/signin/SignIn";
 import UserDetails from "./components/users/userDetails/UserDetails";
+import ErrorPage from "./components/errorPage/ErrorPage";
 
 import "./index.css";
 
@@ -21,14 +22,22 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Switch>
-        <Route exact path="/signin" component={SignIn} />
-        {JSON.parse(!sessionStorage.getItem("auth")) && (
-          <Redirect to="/signin" />
-        )}
-        <Route exact path="/" component={App} />
-        <Route exact path="/user/:id" component={UserDetails} />
-      </Switch>
+      <Route exact path="/signin" component={SignIn} />
+      <Route
+        exact
+        path="*"
+        render={() =>
+          JSON.parse(sessionStorage.getItem("auth")) ? (
+            <Switch>
+              <Route exact path="/" component={App} />
+              <Route exact path="/user/:id" component={UserDetails} />
+              <Route component={ErrorPage} />
+            </Switch>
+          ) : (
+            <Redirect to="/signin" />
+          )
+        }
+      />
     </Router>
   </Provider>,
   document.getElementById("root")
