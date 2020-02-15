@@ -1,8 +1,13 @@
 import React from "react";
 import "./UserSummary.css";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { searchValueAction } from "../../../redux/actions/searchAction";
 
-const UserSummary = ({ user }) => {
+const UserSummary = ({ searchValueAction, user }) => {
+  const handleClick = () => {
+    searchValueAction("");
+  };
   return (
     <div className="userSummary">
       <div className="userSummary__id">
@@ -13,11 +18,11 @@ const UserSummary = ({ user }) => {
         <span>name:</span>
         <p>{user.name}</p>
       </div>
-      <NavLink to={`/user/` + user.id}>
+      <NavLink onClick={() => handleClick()} to={`/user/` + user.id}>
         <button className="userSummary__btn">details</button>
       </NavLink>
     </div>
   );
 };
-
-export default UserSummary;
+const mapDispatchToProps = { searchValueAction };
+export default connect(null, mapDispatchToProps)(UserSummary);
