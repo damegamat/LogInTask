@@ -11,13 +11,9 @@ import "./SignIn.css";
 
 function SignIn() {
   const history = useHistory();
-  const isLoginPending = useSelector(
-    state => state.loginReducer.isLoginPending
-  );
-  const isLoginSuccess = useSelector(
-    state => state.loginReducer.isLoginSuccess
-  );
-  const loginError = useSelector(state => state.loginReducer.loginError);
+  const isLoginPending = useSelector(state => state.login.isLoginPending);
+  const isLoginSuccess = useSelector(state => state.login.isLoginSuccess);
+  const loginError = useSelector(state => state.login.loginError);
 
   const dispatch = useDispatch();
   const [form, setForm] = useState({ username: "", password: "" });
