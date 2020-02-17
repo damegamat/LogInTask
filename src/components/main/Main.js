@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import UserList from "../users/userList/UserList";
 import { connect, useSelector } from "react-redux";
-import * as usersActions from "../../store";
+import * as usersActions from "../../fetch/fetchData";
 import getFilteredUsers from "../../selectors/getFilteredUsers";
 
 const Main = ({ fetchUsers }) => {

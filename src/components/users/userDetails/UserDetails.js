@@ -3,7 +3,7 @@ import Btn from "../../../common/btn/Btn";
 import "./UserDetails.css";
 import { NavLink } from "react-router-dom";
 import { connect, useSelector } from "react-redux";
-import * as usersDet from "../../../store";
+import * as usersDet from "../../../fetch/fetchData";
 
 const UserDetails = ({ match, fetchUsersDetails }) => {
   const details = useSelector(state => state.users.details);
